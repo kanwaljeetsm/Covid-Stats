@@ -10,8 +10,18 @@ public class Data {
     private String deaths;
     private List<String> region = new ArrayList<>();
     private List<String> totalInfected = new ArrayList<>();
+    private List<String> stateRecovered = new ArrayList<>();
+    private String dateTimeUpdate;
 
     public Data() {}
+
+    public String getDateTimeUpdate() {
+        return dateTimeUpdate;
+    }
+
+    public void setDateTimeUpdate(String dateTimeUpdate) {
+        this.dateTimeUpdate = dateTimeUpdate;
+    }
 
     public String getActiveCases() {
         return activeCases;
@@ -59,5 +69,13 @@ public class Data {
 
     public void setTotalInfected(List<String> totalInfected) {
         this.totalInfected = totalInfected;
+    }
+
+    public List<String> getStateRecovered() {
+        return stateRecovered;
+    }
+
+    public void setStateRecovered(List<String> stateRecovered) {
+        this.stateRecovered = stateRecovered;
     }
 }
