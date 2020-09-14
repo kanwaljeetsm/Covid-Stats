@@ -1,6 +1,40 @@
 <resources>
     <string name="app_name">Covid Stats</string>
     <string name="url">https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true</string>
-    <string name="last_updated">Last updated on:</string>
+    <string name="txtLast_updated">Last updated on:</string>
+    <string name="txtStateDistribution">Statewise Distribution</string>
+    <string name="txtState">State</string>
+    <string name="txtActive">Active</string>
+    <string name="txtRecovered">Recovered</string>
+    <string name="txtFaq">FAQ</string>
+    <string name="txtHelpline">Call Helpline</string>
+    <string name="txtWebsite">Visit Official Website</string>
+    <string name="txtTotalCases">Total Cases</string>
+    <string name="txtDeaths">Deaths</string>
+    <string name="txtDeveloper">Developer</string>
+    <string name="txtContributor">Contributor</string>
+    <string name="contributorName">Parvinder Kaur Matharu</string>
+    <string name="versionCheckObjId">1mvd6mtrn0</string>
+    <string name="txtDialogSubtitle">Do you want to download the latest version now?</string>
+    <string name="txtDialogPositive">Yes</string>
+    <string name="txtDialogNegative">Not Now!</string>
+    <string name="txtDialogTitle">App Update Available</string>
+    <string name="txtDialogToast">Update your app for better experience!</string>
+    <string name="txtFindMeOn">Find me on</string>
     <string name="no_internet_warning"><b>Aw Snap!&#x2639;</b>\nPlease Check your Internet Connection\nor\nTry Again after sometime</string>
+    <string name="footer">Made in INDIA, Made for INDIA&#10084;&#65039;</string>
+    <string name="faqLink">https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses</string>
+    <string name="webLink">https://www.mohfw.gov.in/</string>
+    <string name="helpline">tel:1075</string>
+    <string name="developerName">Kanwaljeet Singh Matharu</string>
+    <string name="gitLink">https://github.com/kanwaljeetsm</string>
+    <string name="linkedinLink">https://www.linkedin.com/in/kanwaljeet-singh-matharu-2219bb195/</string>
+    <string name="version">1</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id">VPNJYQHHZJz2NLLlm992lFx8GB5KBEpORaobtJb6</string>
+    <string name="back4app_client_key">lmkeQBS1pZlp2uIxOePnBCcjYsvfhLug8vl4mCwp</string>
+
+
 </resources>

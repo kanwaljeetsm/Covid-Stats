@@ -11,8 +11,6 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
     List<String> mStateList, mStateNums1, mStateNums2;
-    private int count = 2;
-    Data data = new Data();
 
     public RecyclerAdapter(List<String> mStateList, List<String> mStateNums1, List<String> mStateNums2) {
         this.mStateList = mStateList;

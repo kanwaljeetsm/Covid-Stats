@@ -16,8 +16,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,16 +32,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Covid Stats in India"
-                android:textColor="#267FC6"
-                android:textSize="30sp"
+                android:textColor="@color/blue"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtUpdateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/last_updated"
-                android:textSize="10sp"
+                android:text="@string/txtLast_updated"
+                android:textSize="12sp"
                 android:textStyle="italic" />
 
             <ProgressBar
@@ -79,7 +81,6 @@
                                 android:layout_weight="3"
                                 android:background="#DEEDF8"
                                 android:gravity="center"
-                                android:text="TextView"
                                 android:textColor="@color/blue"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -91,7 +92,7 @@
                                 android:layout_weight="1"
                                 android:background="#B3D9F8"
                                 android:gravity="center"
-                                android:text="Total Cases"
+                                android:text="@string/txtTotalCases"
                                 android:textColor="@color/blue"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -117,7 +118,6 @@
                                 android:layout_weight="3"
                                 android:background="#F8E2E2"
                                 android:gravity="center"
-                                android:text="TextView"
                                 android:textColor="@android:color/holo_red_dark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -129,10 +129,10 @@
                                 android:layout_weight="1"
                                 android:background="#F6AEAE"
                                 android:gravity="center"
-                                android:text="Active "
+                                android:text="@string/txtActive"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textStyle="bold"
-                                android:textSize="15sp" />
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -155,7 +155,6 @@
                                 android:layout_weight="3"
                                 android:background="#DBF6D0"
                                 android:gravity="center"
-                                android:text="TextView"
                                 android:textColor="@android:color/holo_green_dark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -167,7 +166,7 @@
                                 android:layout_weight="1"
                                 android:background="#D2ED70"
                                 android:gravity="center"
-                                android:text="Recovered"
+                                android:text="@string/txtRecovered"
                                 android:textColor="@android:color/holo_green_dark"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -193,7 +192,6 @@
                                 android:layout_weight="3"
                                 android:background="#318C8989"
                                 android:gravity="center"
-                                android:text="TextView"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -205,7 +203,7 @@
                                 android:layout_weight="1"
                                 android:background="@android:color/darker_gray"
                                 android:gravity="center"
-                                android:text="Deaths"
+                                android:text="@string/txtDeaths"
                                 android:textColor="@android:color/primary_text_light"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -218,9 +216,9 @@
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Statewise Distribution "
+                android:text="@string/txtStateDistribution"
                 android:textColor="@color/blue"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -235,7 +233,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="State"
+                    android:text="@string/txtState"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -245,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:text="Active"
+                    android:text="@string/txtActive"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -255,20 +253,111 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:text="Recovered"
+                    android:text="@string/txtRecovered"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
+
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_margin="10dp"
-                android:scrollbars="vertical"
-                android:visibility="gone">
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="10dp">
 
-            </androidx.recyclerview.widget.RecyclerView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_margin="10dp"
+                    android:scrollbars="vertical"
+                    android:visibility="gone">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </androidx.cardview.widget.CardView>
+
+            <ProgressBar
+                android:id="@+id/stateProgress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:layout_margin="5dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/faq"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/txtFaq"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:layout_margin="5dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/call"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/txtHelpline"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:layout_margin="5dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/web"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="@string/txtWebsite"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/info"
@@ -276,15 +365,9 @@
                 android:layout_height="50dp"
                 android:background="#B9F181"
                 android:gravity="center"
-                android:text="TextView"
+                android:text="@string/footer"
                 android:textColor="#1B5E20"
                 android:visibility="gone" />
-
-            <ProgressBar
-                android:id="@+id/stateProgress"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
 
         </LinearLayout>
     </ScrollView>
