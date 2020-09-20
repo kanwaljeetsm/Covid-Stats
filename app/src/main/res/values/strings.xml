@@ -10,7 +10,7 @@
     <string name="txtHelpline">Call Helpline</string>
     <string name="txtWebsite">Visit Official Website</string>
     <string name="txtTotalCases">Total Cases</string>
-    <string name="txtDeaths">Deaths</string>
+    <string name="txtDeaths">Deceased</string>
     <string name="txtDeveloper">Developer</string>
     <string name="txtContributor">Contributor</string>
     <string name="contributorName">Parvinder Kaur Matharu</string>
@@ -22,6 +22,7 @@
     <string name="txtDialogToast">Update your app for better experience!</string>
     <string name="txtAppClosure">Closing app in few seconds...</string>
     <string name="txtFindMeOn">Find me on</string>
+    <string name="txtVersion">Version: </string>
     <string name="no_internet_warning"><b>Aw Snap!&#x2639;</b>\nPlease Check your Internet Connection\nor\nTry Again after sometime</string>
     <string name="footer">Made in INDIA, Made for INDIA&#10084;&#65039;</string>
     <string name="faqLink">https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses</string>
@@ -30,7 +31,7 @@
     <string name="developerName">Kanwaljeet Singh Matharu</string>
     <string name="gitLink">https://github.com/kanwaljeetsm</string>
     <string name="linkedinLink">https://www.linkedin.com/in/kanwaljeet-singh-matharu-2219bb195/</string>
-    <string name="version">1</string>
+    <string name="version">1.5</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
     <!-- Change the following strings as required -->

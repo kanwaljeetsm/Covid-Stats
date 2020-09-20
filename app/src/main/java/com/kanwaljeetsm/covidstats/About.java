@@ -10,10 +10,12 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class About extends AppCompatActivity {
 
     private ImageView imgGithub, imgLinkedin;
+    private TextView txtVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class About extends AppCompatActivity {
 
         imgGithub = findViewById(R.id.imgGithub);
         imgLinkedin = findViewById(R.id.imgLinkedin);
+        txtVersion = findViewById(R.id.txtVersion);
+
+        txtVersion.setText(getString(R.string.txtVersion).concat(getString(R.string.version)));
 
         imgGithub.setOnClickListener(new View.OnClickListener() {
             @Override
