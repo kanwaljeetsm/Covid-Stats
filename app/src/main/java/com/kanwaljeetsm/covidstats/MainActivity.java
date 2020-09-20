@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ProgressBar;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> localStateNums2 = new ArrayList<>();
     private RequestQueue requestQueue;
     private Data data;
-    private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtNoInternet, faq, call, web;
+    private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtNoInternet, txtAppClosure, faq, call, web;
     private String mDateTimeUpdate, link;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         txtRecovered = findViewById(R.id.txtRecovered);
         txtDeaths = findViewById(R.id.txtDeaths);
         txtUpdateTime = findViewById(R.id.txtUpdateTime);
+        txtAppClosure = findViewById(R.id.txtAppClosure);
         recyclerView = findViewById(R.id.recyclerView);
         nationProgress = findViewById(R.id.nationProgress);
         stateProgress = findViewById(R.id.stateProgress);
@@ -202,16 +204,40 @@ public class MainActivity extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    txtAppClosure.setText(getString(R.string.txtAppClosure));
+                    CountDownTimer countDownTimer = new CountDownTimer(5000,5000) {
+                        @Override
+                        public void onTick(long l) {}
+
+                        @Override
+                        public void onFinish() {
+                            finish();
+                        }
+                    }.start();
+
                     mainView.setVisibility(View.GONE);
                     txtNoInternet.setVisibility(View.VISIBLE);
+                    txtAppClosure.setVisibility(View.VISIBLE);
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                txtAppClosure.setText(getString(R.string.txtAppClosure));
+                CountDownTimer countDownTimer = new CountDownTimer(5000,5000) {
+                    @Override
+                    public void onTick(long l) {}
+
+                    @Override
+                    public void onFinish() {
+                        finish();
+                    }
+                }.start();
+
                 mainView.setVisibility(View.GONE);
                 txtNoInternet.setVisibility(View.VISIBLE);
+                txtAppClosure.setVisibility(View.VISIBLE);
             }
         });
 

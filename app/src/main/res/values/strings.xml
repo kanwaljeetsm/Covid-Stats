@@ -20,6 +20,7 @@
     <string name="txtDialogNegative">Not Now!</string>
     <string name="txtDialogTitle">App Update Available</string>
     <string name="txtDialogToast">Update your app for better experience!</string>
+    <string name="txtAppClosure">Closing app in few seconds...</string>
     <string name="txtFindMeOn">Find me on</string>
     <string name="no_internet_warning"><b>Aw Snap!&#x2639;</b>\nPlease Check your Internet Connection\nor\nTry Again after sometime</string>
     <string name="footer">Made in INDIA, Made for INDIA&#10084;&#65039;</string>
