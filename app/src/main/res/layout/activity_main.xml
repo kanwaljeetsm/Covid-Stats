@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="onClick"
     android:scrollbars="vertical"
     tools:context=".MainActivity">
 
@@ -31,7 +32,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Covid Stats in India"
+                android:text="@string/txtTitle"
                 android:textColor="@color/blue"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -63,9 +64,11 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/card1"
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
+                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -100,9 +103,11 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/card2"
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
+                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -137,9 +142,11 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/card3"
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
+                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -174,9 +181,11 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/card4"
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
+                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 

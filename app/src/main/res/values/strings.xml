@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Covid Stats</string>
     <string name="url">https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true</string>
+    <string name="txtTitle">Covid Stats in India</string>
+    <string name="txtDailyChange">Daily Change</string>
     <string name="txtLast_updated">Last updated on:</string>
     <string name="txtStateDistribution">Statewise Distribution</string>
     <string name="txtState">State</string>
@@ -32,6 +34,9 @@
     <string name="gitLink">https://github.com/kanwaljeetsm</string>
     <string name="linkedinLink">https://www.linkedin.com/in/kanwaljeet-singh-matharu-2219bb195/</string>
     <string name="version">1.5</string>
+    <string name="quote1">"Always wear a mask when outdoors</string>
+    <string name="quote2">Sanitize your hands frequently</string>
+    <string name="quote3">Cover your mouth and nose when sneezing or coughing</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
     <!-- Change the following strings as required -->

@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private String url;
     private List<String> localStateList = new ArrayList<>();
     private List<String> localStateNums1 = new ArrayList<>();
@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
 
         getVersion();
+
+
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,5 +246,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.card1) {}
+        if(v.getId() == R.id.card2) {}
+        if(v.getId() == R.id.card3) {}
+        Intent intent = new Intent(MainActivity.this,DailyChange.class);
+        startActivity(intent);
     }
 }
