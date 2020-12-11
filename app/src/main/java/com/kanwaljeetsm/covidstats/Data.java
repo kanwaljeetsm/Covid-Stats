@@ -8,6 +8,9 @@ public class Data {
     private String totalCases;
     private String recovered;
     private String deaths;
+    private String nActiveCases;
+    private String nRecovered;
+    private String nDeaths;
     private List<String> region = new ArrayList<>();
     private List<String> totalInfected = new ArrayList<>();
     private List<String> stateRecovered = new ArrayList<>();
@@ -77,5 +80,29 @@ public class Data {
 
     public void setStateRecovered(List<String> stateRecovered) {
         this.stateRecovered = stateRecovered;
+    }
+
+    public String getnActiveCases() {
+        return nActiveCases;
+    }
+
+    public void setnActiveCases(String nActiveCases) {
+        this.nActiveCases = nActiveCases;
+    }
+
+    public String getnRecovered() {
+        return nRecovered;
+    }
+
+    public void setnRecovered(String nRecovered) {
+        this.nRecovered = nRecovered;
+    }
+
+    public String getnDeaths() {
+        return nDeaths;
+    }
+
+    public void setnDeaths(String nDeaths) {
+        this.nDeaths = nDeaths;
     }
 }

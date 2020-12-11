@@ -1,7 +1,9 @@
 package com.kanwaljeetsm.covidstats;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +12,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ProgressBar;
@@ -32,12 +37,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
+import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
     private String url;
     private List<String> localStateList = new ArrayList<>();
     private List<String> localStateNums1 = new ArrayList<>();
@@ -54,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HorizontalScrollView horizontalScroll;
     private ScrollView mainView;
     private AlertDialog.Builder builder;
+    private CardView nxtActCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDeaths = findViewById(R.id.txtDeaths);
         txtUpdateTime = findViewById(R.id.txtUpdateTime);
         txtAppClosure = findViewById(R.id.txtAppClosure);
+        nxtActCard = findViewById(R.id.nxtActCard);
         recyclerView = findViewById(R.id.recyclerView);
         nationProgress = findViewById(R.id.nationProgress);
         stateProgress = findViewById(R.id.stateProgress);
@@ -82,8 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder = new AlertDialog.Builder(this);
 
         getVersion();
-
-
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +125,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        nxtActCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DailyChange.class);
+                startActivity(intent);
+            }
+        });
+
         getAndSetData();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.refresh:
+                nationProgress.setVisibility(View.VISIBLE);
+                stateProgress.setVisibility(View.VISIBLE);
+                horizontalScroll.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.GONE);
+                info.setVisibility(View.GONE);
+                getAndSetData();
+            break;
+        }
+        return true;
     }
 
     private void getVersion() {
@@ -170,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     data.setDeaths(String.valueOf(response.getInt("deaths")));
                     mDateTimeUpdate =(response.getString("lastUpdatedAtApify"));
                     mDateTimeUpdate = (getString(R.string.txtLast_updated).concat(mDateTimeUpdate.substring(0,10)
-                            .concat(" at ").concat(mDateTimeUpdate.substring(11, 16))));
+                            .concat(" at ").concat(mDateTimeUpdate.substring(11, 16)).concat(" GMT")));
                     data.setDateTimeUpdate(mDateTimeUpdate);
 
                     JSONArray jsonArray = response.getJSONArray("regionData");
@@ -246,14 +284,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         requestQueue.add(jsonObjectRequest);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.card1) {}
-        if(v.getId() == R.id.card2) {}
-        if(v.getId() == R.id.card3) {}
-        Intent intent = new Intent(MainActivity.this,DailyChange.class);
-        startActivity(intent);
     }
 }

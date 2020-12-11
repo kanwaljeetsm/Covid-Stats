@@ -5,7 +5,6 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="onClick"
     android:scrollbars="vertical"
     tools:context=".MainActivity">
 
@@ -64,11 +63,31 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/nxtActCard"
+                        android:layout_width="125dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/blue"
+                        app:cardElevation="5dp"
+                        app:cardMaxElevation="10dp">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txtNextActCard"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
                         android:id="@+id/card1"
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
-                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -107,7 +126,6 @@
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
-                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -146,7 +164,6 @@
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
-                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
@@ -185,7 +202,6 @@
                         android:layout_width="125dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
-                        android:onClick="onClick"
                         app:cardElevation="5dp"
                         app:cardMaxElevation="10dp">
 
