@@ -5,7 +5,8 @@
         android:id="@+id/refresh"
         android:title="@string/txtRefresh"
         app:showAsAction="always"
-        android:orderInCategory="0">
+        android:orderInCategory="0"
+        android:icon="@drawable/ic_baseline_refresh_24">
 
     </item>
 

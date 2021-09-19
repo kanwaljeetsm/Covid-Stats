@@ -8,7 +8,7 @@
     <string name="txtState">State</string>
     <string name="txtActive">Active</string>
     <string name="txtRecovered">Recovered</string>
-    <string name="txtNActive">New Cases</string>
+    <string name="txtNActive">Active Cases</string>
     <string name="txtNRecovered">Recovered</string>
     <string name="txtNDeaths">Deceased</string>
     <string name="nxtActivity">View Last 24hr Updates Statewise ➡</string>
@@ -40,7 +40,7 @@
     <string name="developerName">Kanwaljeet Singh Matharu</string>
     <string name="gitLink">https://github.com/kanwaljeetsm</string>
     <string name="linkedinLink">https://www.linkedin.com/in/kanwaljeet-singh-matharu-2219bb195/</string>
-    <string name="version">1.5.3</string>
+    <string name="version">1.8.4</string>
     <string name="quote1">"Always wear a mask when outdoors</string>
     <string name="quote2">Sanitize your hands frequently</string>
     <string name="quote3">Cover your mouth and nose when sneezing or coughing</string>

@@ -68,9 +68,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
-        url = getString(R.string.url);
-        data = new Data();
+
+        try {
+            ParseInstallation.getCurrentInstallation().saveInBackground();
+            url = getString(R.string.url);
+            data = new Data();
+        }catch(Exception e) {e.printStackTrace();}
 
         txtTotal = findViewById(R.id.txtTotal);
         txtActive = findViewById(R.id.txtActive);
@@ -159,41 +162,45 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void getVersion() {
-        ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("AppVersion");
-        parseQuery.getInBackground(getString(R.string.versionCheckObjId), new GetCallback<ParseObject>() {
-            @Override
-            public void done(ParseObject object, ParseException e) {
-                if(!((getString(R.string.version)).equals(String.valueOf(object.get("Version"))))) {
-                    link = String.valueOf(object.get("Link"));
-                    builder.setMessage(getString(R.string.txtDialogSubtitle))
-                            .setCancelable(false)
-                            .setPositiveButton(getString(R.string.txtDialogPositive), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(link));
-                                    startActivity(intent);
-                                }
-                            })
-                            .setNegativeButton(getString(R.string.txtDialogNegative), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    Toast.makeText(getApplicationContext(), getString(R.string.txtDialogToast), Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                    AlertDialog dialog = builder.create();
-                    dialog.setTitle(getString(R.string.txtDialogTitle));
-                    dialog.show();
+        try {
+            ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("AppVersion");
+            parseQuery.getInBackground(getString(R.string.versionCheckObjId), new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject object, ParseException e) {
+                    if (!((getString(R.string.version)).equals(String.valueOf(object.get("Version"))))) {
+                        link = String.valueOf(object.get("Link"));
+                        builder.setMessage(getString(R.string.txtDialogSubtitle).concat("\n\nUpdate Changelog:\n").concat(String.valueOf(object.get("message"))))
+                                .setCancelable(false)
+                                .setPositiveButton(getString(R.string.txtDialogPositive), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(link));
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setNegativeButton(getString(R.string.txtDialogNegative), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(getApplicationContext(), getString(R.string.txtDialogToast), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.setTitle(getString(R.string.txtDialogTitle));
+                        dialog.show();
+                    }
                 }
-            }
-        });
+            });
+        }catch(Exception e) {e.printStackTrace();}
     }
 
     public void appOpeningTime() {
-            ParseObject appOpeningTime = new ParseObject("OpeningTimes");
-            SimpleDateFormat sdf = new SimpleDateFormat();
-            String dateTime = sdf.format(new Date());
-            appOpeningTime.put("time", dateTime);
-            appOpeningTime.saveInBackground();
+            try {
+                ParseObject appOpeningTime = new ParseObject("OpeningTimes");
+                SimpleDateFormat sdf = new SimpleDateFormat();
+                String dateTime = sdf.format(new Date());
+                appOpeningTime.put("time", dateTime);
+                appOpeningTime.saveInBackground();
+            }catch(Exception e) {e.printStackTrace();}
     }
 
     public void getAndSetData() {
@@ -212,6 +219,10 @@ public class MainActivity extends AppCompatActivity{
                     data.setDateTimeUpdate(mDateTimeUpdate);
 
                     JSONArray jsonArray = response.getJSONArray("regionData");
+                    localStateList.clear();
+                    localStateNums1.clear();
+                    localStateNums2.clear();
+                    localStateNums3.clear();
                     for(int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         localStateList.add(jsonObject.getString("region"));

@@ -8,8 +8,8 @@ android {
         applicationId "com.kanwaljeetsm.covidstats"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.5.3"
+        versionCode 4
+        versionName "1.8.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
