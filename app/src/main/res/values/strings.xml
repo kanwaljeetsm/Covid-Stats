@@ -5,7 +5,7 @@
     <string name="txtDailyChange">Daily Change</string>
     <string name="txtLast_updated">Last updated on:</string>
     <string name="txtStateDistribution">Statewise Distribution</string>
-    <string name="txtState">State</string>
+    <string name="txtState">Total</string>
     <string name="txtActive">Active</string>
     <string name="txtRecovered">Recovered</string>
     <string name="txtNActive">Active Cases</string>

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity{
     private List<String> localStateNums1 = new ArrayList<>();
     private List<String> localStateNums2 = new ArrayList<>();
     private List<String> localStateNums3 = new ArrayList<>();
+    private List<String> localStateNums4 = new ArrayList<>();
     private RequestQueue requestQueue;
     private Data data;
     private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtNoInternet, txtAppClosure, faq, call, web;
@@ -229,6 +230,7 @@ public class MainActivity extends AppCompatActivity{
                         localStateNums1.add(String.valueOf(jsonObject.getInt("totalInfected")));
                         localStateNums2.add(String.valueOf(jsonObject.getInt("recovered")));
                         localStateNums3.add(String.valueOf(jsonObject.getInt("deceased")));
+                        localStateNums4.add(String.valueOf(jsonObject.getInt("activeCases")));
                     }
 
                     data.setRegion(localStateList);
@@ -244,7 +246,7 @@ public class MainActivity extends AppCompatActivity{
                     recyclerView.setHasFixedSize(true);
                     layoutManager = new LinearLayoutManager(MainActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
-                    adapter = new RecyclerAdapter(localStateList, localStateNums1, localStateNums2, localStateNums3);
+                    adapter = new RecyclerAdapter(localStateList, localStateNums1, localStateNums2, localStateNums3, localStateNums4);
                     recyclerView.setAdapter(adapter);
 
                     nationProgress.setVisibility(View.GONE);
