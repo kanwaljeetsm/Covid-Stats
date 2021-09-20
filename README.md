@@ -1,5 +1,5 @@
 # Covid-Stats-Private
-Private Repository of Covid Stats
+Repository of Covid Stats
 
 Changelog:
 
@@ -12,3 +12,8 @@ Changelog:
             b. Added Refresh Button
             c. Fixed Time inaccuracy
             d. Added Quotes
+
+3 (v1.8.4): a. Changed Refresh icon
+            b. Fixed Statewise Distribution list
+            c. Modified Daily Active cases change indicator
+            d. Users will be informed update changelog from next update
