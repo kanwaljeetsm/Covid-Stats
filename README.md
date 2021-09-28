@@ -21,3 +21,7 @@ Changelog:
             b. Fixed Statewise Distribution list
             c. Modified Daily Active cases change indicator
             d. Users will be informed update changelog from next update
+            
+            
+5 (v1.10.4): a. Optimized space in state data list
+             b. Added total cases data
