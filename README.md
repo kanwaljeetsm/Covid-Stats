@@ -1,6 +1,8 @@
 # Covid-Stats-Private
 Repository of Covid Stats
 
+App Link: https://drive.google.com/drive/folders/1UyRP06leR56s-AAWArWCekeKbq_6vWEa?usp=sharing
+
 Changelog:
 
 1 (v1.0.0): a. Initial Build
@@ -25,3 +27,4 @@ Changelog:
             
 5 (v1.10.4): a. Optimized space in state data list
              b. Added total cases data
+
