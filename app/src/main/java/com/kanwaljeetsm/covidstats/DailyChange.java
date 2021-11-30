@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DailyChange extends AppCompatActivity {
+public class DailyChange extends AppCompatActivity implements View.OnClickListener {
 
     private TextView quotes;
     private String url;
@@ -30,6 +31,8 @@ public class DailyChange extends AppCompatActivity {
     private TextView newActive, newRecovered, newDeceased;
     private RequestQueue requestQueue;
     private ProgressBar pOne, pTwo, pThree;
+    private ImageView imgV1, imgV2;
+    private CountDownTimer countDownTimer;
     Data data = new Data();
 
     @Override
@@ -45,10 +48,16 @@ public class DailyChange extends AppCompatActivity {
         pOne = findViewById(R.id.pOne);
         pTwo = findViewById(R.id.pTwo);
         pThree = findViewById(R.id.pThree);
+        imgV1 = findViewById(R.id.imgV1);
+        imgV2 = findViewById(R.id.imgV2);
 
         getAndSetData();
 
-        CountDownTimer countDownTimer = new CountDownTimer(15000,5000) {
+
+
+        //refreshing the countdown timer function pending
+
+        countDownTimer = new CountDownTimer(15000,5000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 if(count == 3) {
@@ -57,23 +66,25 @@ public class DailyChange extends AppCompatActivity {
                 else {
                     count++;
                 }
-                switch (count) {
-                    case 1:
-                        quotes.setText(R.string.quote1);
-                        break;
-                    case 2:
-                        quotes.setText(R.string.quote2);
-                        break;
-                    case 3:
-                        quotes.setText(R.string.quote3);
-                        break;
-                }
+                    switch (count) {
+                        case 1:
+                            quotes.setText(R.string.quote1);
+                            break;
+                        case 2:
+                            quotes.setText(R.string.quote2);
+                            break;
+                        case 3:
+                            quotes.setText(R.string.quote3);
+                            break;
+                    }
+
             }
 
             @Override
             public void onFinish() {
                 start();
             }
+
         }.start();
     }
 
@@ -164,5 +175,24 @@ public class DailyChange extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.imgV1:
+                count = count - 2;
+                if(count < 0) {
+                    count = 2;
+                }
+                countDownTimer.cancel();
+                countDownTimer.start();
+                break;
+            case R.id.imgV2:
+                countDownTimer.cancel();
+                countDownTimer.start();
+                break;
+        }
     }
 }
