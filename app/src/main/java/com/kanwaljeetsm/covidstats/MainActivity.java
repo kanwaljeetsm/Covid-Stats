@@ -251,6 +251,13 @@ public class MainActivity extends AppCompatActivity{
                     for(int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         localStateList.add(jsonObject.getString("region"));
+
+                        //fix for the '***' appearing in regions
+                        int fixCounter = 0;
+                        for(String t: localStateList) {
+                            localStateList.set(fixCounter,t.replaceAll("\\*",""));
+                            fixCounter++;
+                        }
                         localStateNums1.add(String.valueOf(jsonObject.getInt("totalInfected")));
                         localStateNums2.add(String.valueOf(jsonObject.getInt("recovered")));
                         localStateNums3.add(String.valueOf(jsonObject.getInt("deceased")));
