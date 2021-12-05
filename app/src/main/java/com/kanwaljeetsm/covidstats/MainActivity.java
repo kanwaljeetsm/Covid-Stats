@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity{
             manager.createNotificationChannel(channel);
         }
 
-        FirebaseMessaging.getInstance().subscribeToTopic("general")
+        FirebaseMessaging.getInstance().subscribeToTopic("general_v1.12.5")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

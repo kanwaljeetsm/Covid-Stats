@@ -14,8 +14,8 @@ android {
         applicationId "com.kanwaljeetsm.covidstats"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.10.4"
+        versionCode 6
+        versionName "1.12.5"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
