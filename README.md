@@ -28,3 +28,7 @@ Changelog:
 5 (v1.10.4): a. Optimized space in state data list
              b. Added total cases data
 
+
+6 (v1.12.5): a. added scrolling feature for quotes
+             b. added cloud notifications feature (finally!)
+             c. fixed asterisks issue in region names
