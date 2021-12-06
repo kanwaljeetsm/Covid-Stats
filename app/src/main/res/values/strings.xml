@@ -45,6 +45,7 @@
     <string name="quote2">Sanitize your hands frequently</string>
     <string name="quote3">Cover your mouth and nose when sneezing or coughing</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="restartApp">Please restart your app!</string>
 
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">VPNJYQHHZJz2NLLlm992lFx8GB5KBEpORaobtJb6</string>

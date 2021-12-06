@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
     private List<String> localStateNums4 = new ArrayList<>();
     private RequestQueue requestQueue;
     private Data data;
-    private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtNoInternet, txtAppClosure, faq, call, web;
+    private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtRestartApp, txtNoInternet, faq, call, web;
     private String mDateTimeUpdate, link;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity{
     private ScrollView mainView;
     private AlertDialog.Builder builder;
     private CardView nxtActCard;
+    private boolean mState = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         try {
-            ParseInstallation.getCurrentInstallation().saveInBackground();
+//            ParseInstallation.getCurrentInstallation().saveInBackground();
             url = getString(R.string.url);
             data = new Data();
         }catch(Exception e) {e.printStackTrace();}
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity{
         txtRecovered = findViewById(R.id.txtRecovered);
         txtDeaths = findViewById(R.id.txtDeaths);
         txtUpdateTime = findViewById(R.id.txtUpdateTime);
-        txtAppClosure = findViewById(R.id.txtAppClosure);
+        txtRestartApp = findViewById(R.id.txtRestartApp);
         nxtActCard = findViewById(R.id.nxtActCard);
         recyclerView = findViewById(R.id.recyclerView);
         nationProgress = findViewById(R.id.nationProgress);
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity{
         web = findViewById(R.id.web);
         builder = new AlertDialog.Builder(this);
 
-        getVersion();
+//        getVersion();
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +170,10 @@ public class MainActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
+        if(mState == true) {
+            MenuItem item = menu.findItem(R.id.refresh);
+            item.setVisible(false);
+        }
         return true;
     }
 
@@ -286,44 +292,29 @@ public class MainActivity extends AppCompatActivity{
                     recyclerView.setVisibility(View.VISIBLE);
                     info.setVisibility(View.VISIBLE);
 
-                    appOpeningTime();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    txtAppClosure.setText(getString(R.string.txtAppClosure));
-                    CountDownTimer countDownTimer = new CountDownTimer(5000,5000) {
-                        @Override
-                        public void onTick(long l) {}
-
-                        @Override
-                        public void onFinish() {
-                            finish();
-                        }
-                    }.start();
 
                     mainView.setVisibility(View.GONE);
                     txtNoInternet.setVisibility(View.VISIBLE);
-                    txtAppClosure.setVisibility(View.VISIBLE);
+                    txtRestartApp.setVisibility(View.VISIBLE);
+
+                    mState = true;
+                    invalidateOptionsMenu();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-                txtAppClosure.setText(getString(R.string.txtAppClosure));
-                CountDownTimer countDownTimer = new CountDownTimer(5000,5000) {
-                    @Override
-                    public void onTick(long l) {}
-
-                    @Override
-                    public void onFinish() {
-                        finish();
-                    }
-                }.start();
 
                 mainView.setVisibility(View.GONE);
                 txtNoInternet.setVisibility(View.VISIBLE);
-                txtAppClosure.setVisibility(View.VISIBLE);
+                txtRestartApp.setVisibility(View.VISIBLE);
+
+                mState = true;
+                invalidateOptionsMenu();
             }
         });
 
