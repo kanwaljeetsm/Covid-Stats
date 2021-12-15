@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity{
     private List<String> localStateNums2 = new ArrayList<>();
     private List<String> localStateNums3 = new ArrayList<>();
     private List<String> localStateNums4 = new ArrayList<>();
+    private List<String> localStateNums5 = new ArrayList<>();
+    private List<String> localStateNums6 = new ArrayList<>();
+    private List<String> localStateNums7 = new ArrayList<>();
+
     private RequestQueue requestQueue;
     private Data data;
     private TextView txtTotal, txtActive, txtRecovered, txtDeaths, txtUpdateTime, info, txtRestartApp, txtNoInternet, faq, call, web;
@@ -83,7 +87,9 @@ public class MainActivity extends AppCompatActivity{
 //            ParseInstallation.getCurrentInstallation().saveInBackground();
             url = getString(R.string.url);
             data = new Data();
-        }catch(Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         txtTotal = findViewById(R.id.txtTotal);
         txtActive = findViewById(R.id.txtActive);
@@ -110,7 +116,8 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(getString(R.string.faqLink)));
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
 
         call.setOnClickListener(new View.OnClickListener() {
@@ -148,8 +155,8 @@ public class MainActivity extends AppCompatActivity{
 
         getAndSetData();
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("MyNotifications","MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
@@ -164,7 +171,7 @@ public class MainActivity extends AppCompatActivity{
                         }
                     }
                 });
-        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,15 +186,13 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.refresh:
+        if((item.getItemId()) == R.id.refresh) {
                 nationProgress.setVisibility(View.VISIBLE);
                 stateProgress.setVisibility(View.VISIBLE);
                 horizontalScroll.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.GONE);
                 info.setVisibility(View.GONE);
                 getAndSetData();
-            break;
         }
         return true;
     }
@@ -254,6 +259,10 @@ public class MainActivity extends AppCompatActivity{
                     localStateNums1.clear();
                     localStateNums2.clear();
                     localStateNums3.clear();
+                    localStateNums4.clear();
+                    localStateNums5.clear();
+                    localStateNums6.clear();
+                    localStateNums7.clear();
                     for(int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         localStateList.add(jsonObject.getString("region"));
@@ -268,6 +277,9 @@ public class MainActivity extends AppCompatActivity{
                         localStateNums2.add(String.valueOf(jsonObject.getInt("recovered")));
                         localStateNums3.add(String.valueOf(jsonObject.getInt("deceased")));
                         localStateNums4.add(String.valueOf(jsonObject.getInt("activeCases")));
+                        localStateNums5.add(String.valueOf(jsonObject.getInt("newInfected")));
+                        localStateNums6.add(String.valueOf(jsonObject.getInt("newRecovered")));
+                        localStateNums7.add(String.valueOf(jsonObject.getInt("newDeceased")));
                     }
 
                     data.setRegion(localStateList);
@@ -283,7 +295,8 @@ public class MainActivity extends AppCompatActivity{
                     recyclerView.setHasFixedSize(true);
                     layoutManager = new LinearLayoutManager(MainActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
-                    adapter = new RecyclerAdapter(localStateList, localStateNums1, localStateNums2, localStateNums3, localStateNums4);
+                    adapter = new RecyclerAdapter(localStateList, localStateNums1, localStateNums2, localStateNums3, localStateNums4,
+                            localStateNums5, localStateNums6, localStateNums7);
                     recyclerView.setAdapter(adapter);
 
                     nationProgress.setVisibility(View.GONE);

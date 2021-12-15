@@ -97,8 +97,7 @@ public class DailyChange extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.refresh:
+        if ((item.getItemId()) == R.id.refresh) {
                 pOne.setVisibility(View.VISIBLE);
                 pTwo.setVisibility(View.VISIBLE);
                 pThree.setVisibility(View.VISIBLE);
@@ -106,7 +105,6 @@ public class DailyChange extends AppCompatActivity implements View.OnClickListen
                 newRecovered.setVisibility(View.GONE);
                 newDeceased.setVisibility(View.GONE);
                 getAndSetData();
-            break;
         }
         return true;
     }

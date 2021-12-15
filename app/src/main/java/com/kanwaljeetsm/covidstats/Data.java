@@ -14,6 +14,9 @@ public class Data {
     private List<String> region = new ArrayList<>();
     private List<String> totalInfected = new ArrayList<>();
     private List<String> stateRecovered = new ArrayList<>();
+    private List<String> nStateActiveCases = new ArrayList<>();
+    private List<String> nStateRecoveredCases = new ArrayList<>();
+    private List<String> nStateDeceasedCases = new ArrayList<>();
     private String dateTimeUpdate;
 
     public Data() {}
