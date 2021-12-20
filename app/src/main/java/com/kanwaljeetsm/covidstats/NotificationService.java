@@ -15,7 +15,7 @@ public class NotificationService extends FirebaseMessagingService {
 
     }
     public void showNotifications(String title, String body) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "GeneralNotifications")
                 .setContentTitle(title)
                 .setContentText(body)
                 .setAutoCancel(true);

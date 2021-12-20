@@ -181,7 +181,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/c4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="125dp"
                     android:layout_margin="2dp"
                     app:cardElevation="5dp"
@@ -220,7 +220,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/c5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="125dp"
                     android:layout_margin="2dp"
                     app:cardElevation="5dp"
@@ -259,7 +259,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/c6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="125dp"
                     android:layout_margin="2dp"
                     app:cardElevation="5dp"
@@ -299,7 +299,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/c7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="125dp"
                     android:layout_margin="2dp"
                     app:cardElevation="5dp"

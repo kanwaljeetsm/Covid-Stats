@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         try {
-//            ParseInstallation.getCurrentInstallation().saveInBackground();
+            ParseInstallation.getCurrentInstallation().saveInBackground();
             url = getString(R.string.url);
             data = new Data();
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity{
         web = findViewById(R.id.web);
         builder = new AlertDialog.Builder(this);
 
-//        getVersion();
+        getVersion();
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,12 +156,12 @@ public class MainActivity extends AppCompatActivity{
         getAndSetData();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel("GeneralNotifications", "GeneralNotifications", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
 
-        FirebaseMessaging.getInstance().subscribeToTopic("general_v1.12.5")
+        FirebaseMessaging.getInstance().subscribeToTopic("general_v1.13.7")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -304,6 +304,8 @@ public class MainActivity extends AppCompatActivity{
                     horizontalScroll.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.VISIBLE);
                     info.setVisibility(View.VISIBLE);
+
+                    appOpeningTime();
 
 
                 } catch (JSONException e) {
