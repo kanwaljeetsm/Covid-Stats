@@ -29,6 +29,11 @@ Changelog:
              b. Added total cases data
 
 
-6 (v1.12.5): a. added scrolling feature for quotes
-             b. added cloud notifications feature (finally!)
-             c. fixed asterisks issue in region names
+6 (v1.12.5): a. Added scrolling feature for quotes
+             b. Added cloud notifications feature (finally!)
+             c. Fixed asterisks issue in region names
+             
+             
+7 (v1.13.7): a. Fixed App Crash on No Internet
+             b. Added Activity for Region Details
+             c. Fixed Scrolling problem in Landscape mode
