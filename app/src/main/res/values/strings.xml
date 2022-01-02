@@ -40,7 +40,7 @@
     <string name="developerName">Kanwaljeet Singh Matharu</string>
     <string name="gitLink">https://github.com/kanwaljeetsm</string>
     <string name="linkedinLink">https://www.linkedin.com/in/kanwaljeetsm/</string>
-    <string name="version">1.13.7</string>
+    <string name="version">1.14.7</string>
     <string name="quote1">"Always wear a mask when outdoors</string>
     <string name="quote2">Sanitize your hands frequently</string>
     <string name="quote3">Cover your mouth and nose when sneezing or coughing</string>
@@ -54,14 +54,5 @@
     <string name="back4app_app_id">VPNJYQHHZJz2NLLlm992lFx8GB5KBEpORaobtJb6</string>
     <string name="back4app_client_key">lmkeQBS1pZlp2uIxOePnBCcjYsvfhLug8vl4mCwp</string>
     <string name="title_activity_state_details">StateDetails</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
 
 </resources>

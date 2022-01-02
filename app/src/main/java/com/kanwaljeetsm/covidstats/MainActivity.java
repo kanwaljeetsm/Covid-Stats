@@ -34,6 +34,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity{
     private ScrollView mainView;
     private AlertDialog.Builder builder;
     private CardView nxtActCard;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private boolean mState = false;
 
 
@@ -82,6 +84,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         try {
             ParseInstallation.getCurrentInstallation().saveInBackground();
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity{
         web = findViewById(R.id.web);
         builder = new AlertDialog.Builder(this);
 
-        getVersion();
+//        getVersion();
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +165,7 @@ public class MainActivity extends AppCompatActivity{
             manager.createNotificationChannel(channel);
         }
 
-        FirebaseMessaging.getInstance().subscribeToTopic("general_v1.13.7")
+        FirebaseMessaging.getInstance().subscribeToTopic("general")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
